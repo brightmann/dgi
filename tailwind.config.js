@@ -1,6 +1,5 @@
 const config = {
   darkMode: ['class', '.mocha'],
-  plugins: [require('@catppuccin/tailwindcss')],
   theme: {
     extend: {
       fontFamily: {
