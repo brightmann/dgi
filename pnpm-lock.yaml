@@ -18,8 +18,8 @@ importers:
         specifier: ^1.7.1
         version: 1.7.1
       '@catppuccin/tailwindcss':
-        specifier: ^0.1.6
-        version: 0.1.6(tailwindcss@4.1.7)
+        specifier: ^1.0.0
+        version: 1.0.0
       '@codesandbox/sandpack-react':
         specifier: ^2.20.0
         version: 2.20.0(@lezer/common@1.2.3)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -169,10 +169,9 @@ packages:
   '@catppuccin/palette@1.7.1':
     resolution: {integrity: sha512-aRc1tbzrevOTV7nFTT9SRdF26w/MIwT4Jwt4fDMc9itRZUDXCuEDBLyz4TQMlqO9ZP8mf5Hu4Jr6D03NLFc6Gw==}
 
-  '@catppuccin/tailwindcss@0.1.6':
-    resolution: {integrity: sha512-V+Y0AwZ5SSyvOVAcDl7Ng30xy+m82OKnEJ+9+kcZZ7lRyXuZrAb2GScdq9XR3v+ggt8qiZ/G4TvaC9cJ88AAXA==}
-    peerDependencies:
-      tailwindcss: '>=3.0.0'
+  '@catppuccin/tailwindcss@1.0.0':
+    resolution: {integrity: sha512-l8pOlcYe2ncGd8a1gUmL5AHmKlxR2+CHuG5kt4Me6IZwzntW1DoLmj89BH+DcsPHBsdDGLrTSv35emlYyU3FeQ==}
+    engines: {node: '>=22.0.0'}
 
   '@codemirror/autocomplete@6.18.1':
     resolution: {integrity: sha512-iWHdj/B1ethnHRTwZj+C1obmmuCzquH29EbcKr0qIjA9NfDeBDJ7vs+WOHsFeLeflE4o+dHfYndJloMKHUkWUA==}
@@ -1688,9 +1687,7 @@ snapshots:
 
   '@catppuccin/palette@1.7.1': {}
 
-  '@catppuccin/tailwindcss@0.1.6(tailwindcss@4.1.7)':
-    dependencies:
-      tailwindcss: 4.1.7
+  '@catppuccin/tailwindcss@1.0.0': {}
 
   '@codemirror/autocomplete@6.18.1(@codemirror/language@6.10.3)(@codemirror/state@6.4.1)(@codemirror/view@6.34.1)(@lezer/common@1.2.3)':
     dependencies:
