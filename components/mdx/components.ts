@@ -1,4 +1,3 @@
-import GistCode from 'components/common/gist-code';
 import Anchor from 'components/mdx/anchor';
 import Image from 'components/mdx/image';
 import Paragraph from 'components/mdx/paragraph';
@@ -19,7 +18,6 @@ const components = {
   TabItem,
   RUACodeSandbox,
   RUACodepen,
-  GistCode,
 };
 
 export default components;
