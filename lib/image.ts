@@ -1,4 +1,3 @@
-// [TODO]
 export default function imageProcess({
   src,
   width,

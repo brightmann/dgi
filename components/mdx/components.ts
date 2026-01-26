@@ -1,4 +1,3 @@
-import Anchor from 'components/mdx/anchor';
 import Image from 'components/mdx/image';
 import Paragraph from 'components/mdx/paragraph';
 import Pre from 'components/mdx/pre';
@@ -10,7 +9,6 @@ import TabItem from 'components/rua/tab/tab-item';
 
 const components = {
   RUASandpack,
-  a: Anchor,
   pre: Pre,
   p: Paragraph,
   Image,

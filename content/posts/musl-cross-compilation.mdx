@@ -1,6 +1,6 @@
 ---
 title: 跨平台的静态链接构建
-date: '2023-12-26'
+date: "2023-12-26"
 tags: [Rust, Linux]
 ---
 
@@ -95,7 +95,7 @@ GOOS=linux GOARCH=arm64 go build
 在跨平台时，openssl 可能没有对应平台的链接库，而 openssl 提供了一个简单的解决方案：添加 `vendored` features。
 
 > If the `vendored` Cargo feature is enabled, the `openssl-src` crate will be used to compile and statically link to a copy of OpenSSL. The build process requires a C compiler, perl (and perl-core), and make. The OpenSSL version will generally track the newest OpenSSL release, and changes to the version are *not* considered breaking changes.
-> https://docs.rs/openssl/latest/openssl/#vendored
+> [https://docs.rs/openssl/latest/openssl/#vendored](https://docs.rs/openssl/latest/openssl/#vendored)
 
 ```toml
 openssl = { version = "0.10.61", features = ["vendored"] }
@@ -123,11 +123,11 @@ apt-get install -y musl-tools libssl-dev pkg-config libudev-dev
 ### Compose
 
 ```yml
-version: '3.6'
+version: "3.6"
 services:
   runner:
     container_name: gitlab-runner-1
-    image: 'gitlab/gitlab-runner:latest'
+    image: "gitlab/gitlab-runner:latest"
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
@@ -135,7 +135,7 @@ services:
 
   runner-2:
     container_name: gitlab-runner-2
-    image: 'gitlab/gitlab-runner:latest'
+    image: "gitlab/gitlab-runner:latest"
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
@@ -155,8 +155,6 @@ docker exec -it gitlab-runner-1 gitlab-runner register
 ## 静态链接的配置文件
 
 较为通用的只用到了 rust 官方镜像的跨平台配置。如果使用了 openssl，则需要添加 `vendored` features。
-
-<GistCode id="2480b0c232e1d235ce8b28b6a5f7540e" />
 
 ### Locally test
 
