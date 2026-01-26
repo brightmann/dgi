@@ -1,11 +1,9 @@
 'use client';
 
-import { DocSearch } from '@docsearch/react';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { memo, useEffect, useState } from 'react';
 import { FiMenu } from 'react-icons/fi';
-import useStore from 'store';
 import DarkModeBtn from './dark-mode-btn';
 
 const txtMenu = [
@@ -52,11 +50,7 @@ const parentIdChecker = (el: HTMLElement | null): boolean => {
 
 const HeadBar = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const resetNavbarHoverItems = useStore(
-    (state) => state.resetNavbarHoverItems,
-  );
   const handleClick = () => {
-    resetNavbarHoverItems();
     setShowMenu((showMenu) => !showMenu);
   };
 
@@ -75,10 +69,6 @@ const HeadBar = () => {
       window.removeEventListener('touchstart', handleCloseNav);
     };
   }, []);
-
-  const toggleNavbarHoverItems = useStore(
-    (state) => state.toggleNavbarHoverItems,
-  );
 
   return (
     <>
@@ -131,8 +121,6 @@ const HeadBar = () => {
                   'mb-2 last:mb-0 md:mb-0',
                   'md:mr-4 md:last:mr-0',
                 )}
-                onMouseOver={() => toggleNavbarHoverItems(m.name.toLowerCase())}
-                onMouseOut={() => toggleNavbarHoverItems(m.name.toLowerCase())}
               >
                 <Link href={m.path}>{m.name}</Link>
               </li>
@@ -145,25 +133,6 @@ const HeadBar = () => {
               )}
             >
               <DarkModeBtn />
-            </li>
-            <li className="DocSearch-wrapper">
-              {mounted ? (
-                <DocSearch
-                  appId={process.env.NEXT_PUBLIC_ALGOLIA_APP_ID ?? ''}
-                  indexName="rua"
-                  apiKey={
-                    process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_ADMIN_KEY ?? ''
-                  }
-                  placeholder="Search..."
-                />
-              ) : (
-                <div
-                  className={clsx(
-                    'w-[164.453px] h-[30px]',
-                    'bg-[#ebedf0] rounded-[40px] animate-pulse',
-                  )}
-                ></div>
-              )}
             </li>
           </ul>
         </nav>

@@ -1,4 +1,3 @@
-import '@docsearch/css/dist/style.css';
 import clsx from 'clsx';
 import BackToTop from 'components/common/back-to-top';
 import Footer from 'components/pages/footer';
