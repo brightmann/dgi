@@ -1,12 +1,14 @@
-import '@catppuccin/highlightjs/sass/catppuccin-variables.rgb.scss';
+// import '@catppuccin/highlightjs/sass/catppuccin-variables.rgb.scss';
+// import '@catppuccin/highlightjs/css/catppuccin-mocha.css';
+// import '@catppuccin/highlightjs/css/catppuccin-latte.css';
 import clsx from 'clsx';
 import components from 'components/mdx/components';
 import data from 'content/mdx-data';
 import { allPostsPath, readSinglePost } from 'lib/posts';
-import { SingleToc, generateToc } from 'lib/utils';
-import { compileMDX } from 'next-mdx-remote/rsc';
+import { generateToc, SingleToc } from 'lib/utils';
 import dynamic from 'next/dynamic';
 import { notFound } from 'next/navigation';
+import { compileMDX } from 'next-mdx-remote/rsc';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';

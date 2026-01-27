@@ -1,17 +1,23 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.3.12/schema.json",
   "vcs": { "enabled": false, "clientKind": "git", "useIgnoreFile": false },
   "files": {
     "ignoreUnknown": true,
-    "ignore": [
-      "**/node_modules",
-      "**/out",
-      "**/.next",
-      "**/public",
-      "**/.git",
-      "**/public/libs",
-      "**/public/models"
+    "includes": [
+      "**",
+      "!**/node_modules",
+      "!**/out",
+      "!**/.next",
+      "!**/public",
+      "!**/.git",
+      "!**/public/libs",
+      "!**/public/models"
     ]
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
   },
   "formatter": {
     "enabled": true,
@@ -23,17 +29,17 @@
     "lineWidth": 80,
     "attributePosition": "auto",
     "bracketSpacing": true,
-    "ignore": [
-      "**/node_modules",
-      "**/out",
-      "**/.next",
-      "**/public",
-      "**/.git",
-      "**/public/libs",
-      "**/public/models"
+    "includes": [
+      "**",
+      "!**/node_modules",
+      "!**/out",
+      "!**/.next",
+      "!**/public",
+      "!**/.git",
+      "!**/public/libs",
+      "!**/public/models"
     ]
   },
-  "organizeImports": { "enabled": true },
   "linter": { "enabled": true, "rules": { "recommended": false } },
   "javascript": {
     "formatter": {

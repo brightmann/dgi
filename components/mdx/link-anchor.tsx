@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { ReactNode, memo } from 'react';
+import { memo, ReactNode } from 'react';
 import { FiExternalLink } from 'react-icons/fi';
 
 interface Props {

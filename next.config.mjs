@@ -4,6 +4,7 @@
 const nextConfig = {
   reactStrictMode: true,
   // output: 'standalone',
+  allowedDevOrigins: ['192.168.64.4'],
   output: 'export',
   trailingSlash: true,
   images: {

@@ -1,8 +1,8 @@
 'use client';
 
 import clsx from 'clsx';
-import { useTheme } from 'next-themes';
 import Image from 'next/image';
+import { useTheme } from 'next-themes';
 import loadingImage from 'public/images/img/mona-loading-default.gif';
 import loadingImageDimmed from 'public/images/img/mona-loading-dimmed.gif';
 import { memo } from 'react';

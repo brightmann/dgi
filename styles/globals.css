@@ -1,13 +1,14 @@
 @import "tailwindcss";
-/* @import "./rua.css"; */
+@import "./rua.css";
+@import "./catppuccin-highlight.css";
 
 @custom-variant dark (&:is(.mocha *));
 
 @theme {
   --font-Barlow: var(--font-barlow);
   --font-Poppins: var(--font-poppins);
-  --font-Mono: var(--fonts-jetbrains-mono), DejaVu Sans Mono, -apple-system,
-    monospace;
+  --font-Mono:
+    var(--fonts-jetbrains-mono), DejaVu Sans Mono, -apple-system, monospace;
   --font-Lobster: var(--font-lobster);
 
   --color-bluish-gray: rgba(245, 247, 250);
@@ -21,8 +22,9 @@
   --shadow-outline: 0 0 0 3px rgba(83, 220, 246, 0.6);
   --shadow-underline: inset 0px -2px 0px 0px rgb(85 200 188 / 70%);
   --shadow-throughline: inset 0px -0.5em 0px 0px rgb(85 200 188 / 70%);
-  --shadow-card: 0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px
-    rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+  --shadow-card:
+    0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04),
+    0px 0px 1px rgba(0, 0, 0, 0.04);
 
   --background-image-underline: linear-gradient(
     rgb(240 240 240),
@@ -34,8 +36,8 @@
   );
 }
 
-/* @config "../tailwind.config.js"; */
-/* @plugin "@catppuccin/tailwindcss"; */
+@config "../tailwind.config.js";
+@import "@catppuccin/tailwindcss/mocha.css";
 
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
@@ -70,20 +72,11 @@
     color: inherit;
     text-shadow: none;
   }
-
-  /*
-font-family: 'Aleo', serif;
-font-family: 'Aref Ruqaa', serif;
-font-family: 'Barlow', sans-serif;
-font-family: 'JetBrains Mono', monospace;
-font-family: 'Poppins', sans-serif;
-*/
 }
 
 @layer base {
   body {
     @apply text-gray-600 bg-bluish-gray dark:bg-rua-gray-900 dark:text-gray-200;
-    /* @apply text bg-linear-to-b from-base to-crust; */
     font-family:
       "Poppins",
       -apple-system,
@@ -134,8 +127,8 @@ code.hljs {
 }
 pre,
 code {
-  font-family: var(--font-jetbrains-mono), -apple-system, "DejaVu Sans Mono",
-    monospace;
+  font-family:
+    var(--font-jetbrains-mono), -apple-system, "DejaVu Sans Mono", monospace;
 }
 
 pre {
@@ -143,8 +136,6 @@ pre {
   margin: 0.5em 0;
   overflow: auto;
   @apply bg-white dark:bg-rua-gray-700;
-  /* font-family: 'Fira Code', 'Fira Mono', Menlo, Consolas, 'DejaVu Sans Mono',
-      monospace; */
   direction: ltr;
   text-align: left;
   white-space: pre;

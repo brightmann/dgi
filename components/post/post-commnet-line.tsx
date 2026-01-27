@@ -1,8 +1,8 @@
 'use client';
 
 import useMounted from 'lib/hooks/use-mounted';
-import { useTheme } from 'next-themes';
 import Image from 'next/image';
+import { useTheme } from 'next-themes';
 import { memo } from 'react';
 
 const PostCommnetLine = () => {

@@ -15,9 +15,9 @@ import {
 } from './sandpack/automatic-dependency-collect';
 import {
   MultiStore,
-  Reducer,
   miniRedux,
   multi,
+  Reducer,
 } from './sandpack/build-own-store-with-usesyncexternalstore';
 import {
   genericApp,

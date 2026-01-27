@@ -7,4 +7,3 @@ export interface MyMatters {
 export interface Post extends MyMatters {
   slug: string;
 }
-
