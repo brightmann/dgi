@@ -1,6 +1,4 @@
-// import '@catppuccin/highlightjs/sass/catppuccin-variables.rgb.scss';
-// import '@catppuccin/highlightjs/css/catppuccin-mocha.css';
-// import '@catppuccin/highlightjs/css/catppuccin-latte.css';
+import '@catppuccin/highlightjs/css/catppuccin-variables.rgb.css';
 import clsx from 'clsx';
 import components from 'components/mdx/components';
 import data from 'content/mdx-data';
