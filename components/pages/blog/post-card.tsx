@@ -10,7 +10,7 @@ interface Props {
 const PostCard = ({ post }: Props) => {
   return (
     <>
-      <Link href={`/p/${post.slug}`} passHref>
+      <Link href={`/post/${post.slug}`} passHref>
         <article
           className={clsx(
             'rounded-lg py-4 px-5 md:p-7 ',
