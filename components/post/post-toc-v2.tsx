@@ -1,12 +1,14 @@
 'use client';
 
 import { SingleToc } from 'lib/utils';
-import { Fragment } from 'react/jsx-runtime';
 import { useEffect, useState } from 'react';
+import { Fragment } from 'react/jsx-runtime';
 
 interface Props {
   toc: SingleToc[];
 }
+
+const BASE_WIDTH = 17;
 
 const renderLi = (toc: SingleToc, activeId: string) => {
   const isActive = activeId === toc.link;
@@ -19,7 +21,8 @@ const renderLi = (toc: SingleToc, activeId: string) => {
             : 'bg-gray-300 dark:bg-gray-500'
         }`}
         style={{
-          width: 15,
+          // toc.level 从 2 开始，2 就是 BASE_WIDTH
+          width: BASE_WIDTH - BASE_WIDTH * (toc.level - 2) * 0.2,
           height: 2,
         }}
       ></li>
@@ -66,7 +69,9 @@ const PostTocV2 = ({ toc }: Props) => {
 
   return (
     <div className="fixed right-3 top-36">
-      <ul>{toc.map((item) => renderLi(item, activeId))}</ul>
+      <ul className="flex flex-col items-end">
+        {toc.map((item) => renderLi(item, activeId))}
+      </ul>
     </div>
   );
 };
