@@ -188,8 +188,8 @@ export const getSearchData = cache(async (): Promise<PostSearchData[]> => {
       const slug = filename.replace(/\.mdx$/, '');
       const { data: meta, content } = matter(fileContent);
 
-      // 截取文章内容前100个字符，用于搜索展示
-      const truncatedContent = content.slice(0, 100).trim();
+      // 进一步优化内容大小：只保留前80个字符，去除多余的换行和空格
+      const truncatedContent = content.slice(0, 80).trim().replace(/\s+/g, ' ');
 
       return {
         slug,

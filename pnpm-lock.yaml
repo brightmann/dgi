@@ -60,6 +60,9 @@ importers:
       '@next/bundle-analyzer':
         specifier: 16.1.4
         version: 16.1.4
+      '@types/jsonminify':
+        specifier: ^0.4.3
+        version: 0.4.3
       '@types/node':
         specifier: 25.0.10
         version: 25.0.10
@@ -75,6 +78,9 @@ importers:
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
+      jsonminify:
+        specifier: ^0.4.2
+        version: 0.4.2
       postcss:
         specifier: ^8.5.6
         version: 8.5.6
@@ -855,6 +861,9 @@ packages:
   '@types/hast@3.0.4':
     resolution: {integrity: sha512-WPs+bbQw5aCj+x6laNGWLH3wviHtoCv/P3+otBhbOhJgG8qtpdAMlTCxLtsTWA7LH1Oh/bFCHsBn0TPS5m30EQ==}
 
+  '@types/jsonminify@0.4.3':
+    resolution: {integrity: sha512-+oz7EbPz1Nwmn/sr3UztgXpRhdFpvFrjGi5ictEYxUri5ZvQMTcdTi36MTfD/gCb1A5xhJKdH8Hwz2uz5k6s9A==}
+
   '@types/mdast@4.0.4':
     resolution: {integrity: sha512-kGaNbPh1k7AFzgpud/gMdvIm5xuECykRR+JnWKQno9TAXVa6WIVCGTPvYGekIDL4uwCZQSYbUxNBSb1aUo79oA==}
 
@@ -1231,6 +1240,10 @@ packages:
   js-yaml@3.14.1:
     resolution: {integrity: sha512-okMH7OXXJ7YrN9Ok3/SXrnu4iX9yOk+25nqX4imS2npuvTYDmo/QEZoqwZkYaIDk3jVvBOTOIEgEhaLOynBS9g==}
     hasBin: true
+
+  jsonminify@0.4.2:
+    resolution: {integrity: sha512-mEtP5ECD0293D+s45JhDutqF5mFCkWY8ClrPFxjSFR2KUoantofky7noSzyKnAnD9Gd8pXHZSUd5bgzLDUBbfA==}
+    engines: {node: '>=0.8.0', npm: '>=1.1.0'}
 
   kind-of@6.0.3:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
@@ -2461,6 +2474,8 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
 
+  '@types/jsonminify@0.4.3': {}
+
   '@types/mdast@4.0.4':
     dependencies:
       '@types/unist': 3.0.3
@@ -2871,6 +2886,8 @@ snapshots:
     dependencies:
       argparse: 1.0.10
       esprima: 4.0.1
+
+  jsonminify@0.4.2: {}
 
   kind-of@6.0.3: {}
 

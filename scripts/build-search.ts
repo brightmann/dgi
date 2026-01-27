@@ -1,6 +1,7 @@
-import { getSearchData } from '../lib/posts';
 import fs from 'fs';
+import jsonminify from 'jsonminify';
 import path from 'path';
+import { getSearchData } from '../lib/posts';
 
 async function main() {
   const result = await getSearchData();
@@ -11,11 +12,23 @@ async function main() {
     fs.mkdirSync(outDir, { recursive: true });
   }
 
-  // Save to search.json
+  // Save to search.json with maximum compression
   const outputPath = path.join(outDir, 'search.json');
-  fs.writeFileSync(outputPath, JSON.stringify(result, null, 2));
+  const jsonString = JSON.stringify(result);
+  const minifiedJson = jsonminify(jsonString);
+  fs.writeFileSync(outputPath, minifiedJson);
+
+  // Calculate and log size difference
+  const originalSize = Buffer.byteLength(JSON.stringify(result, null, 2));
+  const compressedSize = Buffer.byteLength(minifiedJson);
+  const compressionRatio = Math.round(
+    ((originalSize - compressedSize) / originalSize) * 100,
+  );
 
   console.log(`Search data saved to ${outputPath}`);
+  console.log(
+    `Size optimized: ${originalSize} bytes -> ${compressedSize} bytes (${compressionRatio}% reduction)`,
+  );
 }
 
 main().catch((error) => {
