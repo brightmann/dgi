@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import { SingleToc } from 'lib/utils';
 import { useEffect, useState } from 'react';
 import { Fragment } from 'react/jsx-runtime';
@@ -8,24 +9,34 @@ interface Props {
   toc: SingleToc[];
 }
 
-const BASE_WIDTH = 17;
+const BASE_WIDTH = 16;
 
 const renderLi = (toc: SingleToc, activeId: string) => {
   const isActive = activeId === toc.link;
   return (
     <Fragment key={toc.link}>
-      <li
-        className={`list-none! rounded-lg mb-4 last:mb-0 transition-colors duration-200 ${
-          isActive
-            ? 'bg-gray-500 dark:bg-gray-300'
-            : 'bg-gray-300 dark:bg-gray-500'
-        }`}
-        style={{
-          // toc.level 从 2 开始，2 就是 BASE_WIDTH
-          width: BASE_WIDTH - BASE_WIDTH * (toc.level - 2) * 0.2,
-          height: 2,
-        }}
-      ></li>
+      <a href={toc.link} className="flex items-center gap-3 last:mb-0 ">
+        <span
+          className={clsx(
+            'text-sm opacity-0 transition-all duration-300',
+            isActive ? 'opacity-100' : 'opacity-0',
+          )}
+        >
+          {toc.head}
+        </span>
+        <li
+          className={`list-none! rounded-full transition-colors duration-300 cursor-pointer ${
+            isActive
+              ? 'bg-gray-500 dark:bg-gray-300'
+              : 'bg-gray-300 dark:bg-gray-500'
+          }`}
+          style={{
+            // toc.level 从 2 开始，2 就是 BASE_WIDTH
+            width: BASE_WIDTH - BASE_WIDTH * (toc.level - 2) * 0.2,
+            height: 3,
+          }}
+        ></li>
+      </a>
       {toc.children && toc.children.map((child) => renderLi(child, activeId))}
     </Fragment>
   );
@@ -49,7 +60,7 @@ const PostTocV2 = ({ toc }: Props) => {
       },
       {
         // 设置根边距，提前 100px 触发观察
-        rootMargin: '-100px 0px -70% 0px',
+        // rootMargin: '-100px 0px -70% 0px',
         threshold: 0.1,
       },
     );
@@ -68,7 +79,7 @@ const PostTocV2 = ({ toc }: Props) => {
   }, []);
 
   return (
-    <div className="fixed right-3 top-36">
+    <div className="fixed right-3 top-36 hidden xl:block">
       <ul className="flex flex-col items-end">
         {toc.map((item) => renderLi(item, activeId))}
       </ul>
