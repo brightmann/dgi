@@ -1,4 +1,4 @@
-import '@catppuccin/highlightjs/css/catppuccin-variables.rgb.css';
+import 'styles/catppuccin-variables.css';
 import clsx from 'clsx';
 import components from 'components/mdx/components';
 import data from 'content/mdx-data';

@@ -1,0 +1,142 @@
+code.hljs {
+  color: var(--color-ctp-text);
+  background: var(--color-ctp-base);
+}
+code .hljs-keyword {
+  color: var(--color-ctp-mauve);
+}
+code .hljs-built_in {
+  color: var(--color-ctp-red);
+}
+code .hljs-type {
+  color: var(--color-ctp-yellow);
+}
+code .hljs-literal {
+  color: var(--color-ctp-peach);
+}
+code .hljs-number {
+  color: var(--color-ctp-peach);
+}
+code .hljs-operator {
+  color: var(--color-ctp-sky);
+}
+code .hljs-punctuation {
+  color: var(--color-ctp-subtext1);
+}
+code .hljs-property {
+  color: var(--color-ctp-teal);
+}
+code .hljs-regexp {
+  color: var(--color-ctp-pink);
+}
+code .hljs-string {
+  color: var(--color-ctp-green);
+}
+code .hljs-char.escape_ {
+  color: var(--color-ctp-green);
+}
+code .hljs-subst {
+  color: var(--color-ctp-subtext0);
+}
+code .hljs-symbol {
+  color: var(--color-ctp-flamingo);
+}
+code .hljs-variable {
+  color: var(--color-ctp-mauve);
+}
+code .hljs-variable.language_ {
+  color: var(--color-ctp-mauve);
+}
+code .hljs-variable.constant_ {
+  color: var(--color-ctp-peach);
+}
+code .hljs-title {
+  color: var(--color-ctp-blue);
+}
+code .hljs-title.class_ {
+  color: var(--color-ctp-yellow);
+}
+code .hljs-title.function_ {
+  color: var(--color-ctp-blue);
+}
+code .hljs-params {
+  color: var(--color-ctp-text);
+}
+code .hljs-comment {
+  color: var(--color-ctp-overlay2);
+}
+code .hljs-doctag {
+  color: var(--color-ctp-red);
+}
+code .hljs-meta {
+  color: var(--color-ctp-peach);
+}
+code .hljs-section {
+  color: var(--color-ctp-blue);
+}
+code .hljs-tag {
+  color: var(--color-ctp-teal);
+}
+code .hljs-name {
+  color: var(--color-ctp-mauve);
+}
+code .hljs-attr {
+  color: var(--color-ctp-blue);
+}
+code .hljs-attribute {
+  color: var(--color-ctp-green);
+}
+code .hljs-bullet {
+  color: var(--color-ctp-teal);
+}
+code .hljs-code {
+  color: var(--color-ctp-green);
+}
+code .hljs-emphasis {
+  color: var(--color-ctp-red);
+  font-style: italic;
+}
+code .hljs-strong {
+  color: var(--color-ctp-red);
+  font-weight: bold;
+}
+code .hljs-formula {
+  color: var(--color-ctp-teal);
+}
+code .hljs-link {
+  color: var(--color-ctp-sapphire);
+  font-style: italic;
+}
+code .hljs-quote {
+  color: var(--color-ctp-green);
+  font-style: italic;
+}
+code .hljs-selector-tag {
+  color: var(--color-ctp-yellow);
+}
+code .hljs-selector-id {
+  color: var(--color-ctp-blue);
+}
+code .hljs-selector-class {
+  color: var(--color-ctp-teal);
+}
+code .hljs-selector-attr {
+  color: var(--color-ctp-mauve);
+}
+code .hljs-selector-pseudo {
+  color: var(--color-ctp-teal);
+}
+code .hljs-template-tag {
+  color: var(--color-ctp-flamingo);
+}
+code .hljs-template-variable {
+  color: var(--color-ctp-flamingo);
+}
+code .hljs-addition {
+  color: var(--color-ctp-green);
+  background: rgb(from var(--color-ctp-green) r g b / 15%);
+}
+code .hljs-deletion {
+  color: var(--color-ctp-red);
+  background: rgb(from var(--color-ctp-red) r g b / 15%);
+}
