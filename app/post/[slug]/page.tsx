@@ -12,7 +12,8 @@ import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import { Post } from 'types';
 
-const PostToc = dynamic(() => import('components/post/post-toc'));
+// const PostToc = dynamic(() => import('components/post/post-toc'));
+const PostToc = dynamic(() => import('components/post/post-toc-v2'));
 const PostCommnetLine = dynamic(
   () => import('components/post/post-commnet-line'),
 );
@@ -34,11 +35,6 @@ const Page = async ({
   const post = await readSinglePost(slug);
   const toc = generateToc(post);
 
-  const calcLength = (prev: number, cur: SingleToc) => {
-    const childLen = cur.children.length;
-    return childLen ? prev + childLen + 1 : prev + 1;
-  };
-  const tocLength = toc.reduce(calcLength, 0);
   const mdxSource = await compileMDX<Post>({
     source: post,
     options: {
@@ -66,15 +62,13 @@ const Page = async ({
       >
         <h1>{mdxSource.frontmatter?.title}</h1>
         <time>{mdxSource.frontmatter?.date}</time>
-        <PostToc toc={toc} tocLength={tocLength} />
 
         <article id="post-content">
           {mdxSource.content}
           <PostCommnetLine />
-          {/* <div className="mt-4"> */}
-          {/*   <PostComment /> */}
-          {/* </div> */}
         </article>
+
+        <PostToc toc={toc} />
       </main>
     </>
   );
