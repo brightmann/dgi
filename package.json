@@ -9,7 +9,8 @@
     "start": "next start",
     "check": "biome check",
     "fix": "biome check --fix",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "build-search": "tsx scripts/build-search.ts"
   },
   "dependencies": {
     "@catppuccin/highlightjs": "^1.0.1",
@@ -38,6 +39,7 @@
     "postcss": "^8.5.6",
     "sass": "^1.97.3",
     "tailwindcss": "^4.1.18",
+    "tsx": "^4.21.0",
     "typescript": "5.9.3"
   },
   "pnpm": {

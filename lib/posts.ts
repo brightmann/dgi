@@ -3,7 +3,7 @@ import matter from 'gray-matter';
 import { sortByDate } from 'lib/utils';
 import path from 'path';
 import { cache } from 'react';
-import { MyMatters, Post } from 'types';
+import { MyMatters, Post, PostSearchData } from 'types';
 
 // 常量定义
 export const DATA_PATH = 'content/posts';
@@ -171,6 +171,35 @@ export const getPostsByTag = cache(async (tag: string): Promise<Post[]> => {
 export const getTotalPages = cache(async (): Promise<number> => {
   const totalPosts = await getTotalPostsCount();
   return calculateTotalPages(totalPosts);
+});
+
+/**
+ * 构建文章搜索数据
+ * 读取所有文章的元数据和内容，用于搜索功能
+ * @returns 包含文章搜索数据的数组
+ */
+export const getSearchData = cache(async (): Promise<PostSearchData[]> => {
+  const mdxFiles = await getMdxFiles();
+
+  const searchData = await Promise.all(
+    mdxFiles.map(async (filename: string): Promise<PostSearchData> => {
+      const filePath = path.join(DATA_PATH, filename);
+      const fileContent = await fs.readFile(filePath, 'utf-8');
+      const slug = filename.replace(/\.mdx$/, '');
+      const { data: meta, content } = matter(fileContent);
+
+      // 截取文章内容前100个字符，用于搜索展示
+      const truncatedContent = content.slice(0, 100).trim();
+
+      return {
+        slug,
+        ...(meta as MyMatters),
+        content: truncatedContent,
+      };
+    }),
+  );
+
+  return searchData.sort(sortByDate);
 });
 
 // 为了API一致性，同时保留新的函数名称作为别名
