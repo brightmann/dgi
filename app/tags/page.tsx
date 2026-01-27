@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { postLists } from 'lib/posts';
 import { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'RUA - Tags',
@@ -40,8 +41,9 @@ const Page = async () => {
   return (
     <div className={clsx('flex gap-4 flex-wrap')}>
       {Object.entries(tags).map(([tag, count]) => (
-        <div
+        <Link
           key={tag}
+          href={`/tag/${tag}`}
           className={clsx(
             'px-4 py-2 bg-gray-200',
             'rounded-lg flex items-center',
@@ -51,7 +53,7 @@ const Page = async () => {
         >
           <div>{tag}</div>
           <div>{count}</div>
-        </div>
+        </Link>
       ))}
     </div>
   );

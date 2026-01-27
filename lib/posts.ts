@@ -80,45 +80,52 @@ const calculateTotalPages = (totalPosts: number): number => {
 };
 
 /**
- * 获取文章列表的分页路径和标签路径
- * @returns 包含页码和标签的路径数组
+ * 获取文章列表的分页路径
+ * @returns 包含页码的路径数组
  */
-export const getPostListPath = cache(
-  async (): Promise<{ pageOrTag: string }[]> => {
-    const mdxFilesCount = (await getMdxFiles()).length;
-    const totalPages = calculateTotalPages(mdxFilesCount);
-    const posts = await postLists();
-    const allTags = new Set<string>();
+export const getPostListPath = cache(async (): Promise<{ page: string }[]> => {
+  const mdxFilesCount = (await getMdxFiles()).length;
+  const totalPages = calculateTotalPages(mdxFilesCount);
 
-    // 收集所有标签并去重
-    posts.forEach((post) => {
-      if (post.tags) {
-        const tagsArray = Array.isArray(post.tags) ? post.tags : [post.tags];
-        tagsArray.forEach((tag) => {
-          if (tag) {
-            allTags.add(tag);
-          }
-        });
-      }
+  const paths: { page: string }[] = [];
+
+  // 生成分页路径（从第2页开始）
+  if (totalPages > 1) {
+    Array.from({ length: totalPages - 1 }, (_, index) => {
+      paths.push({ page: (index + 2).toString() });
     });
+  }
 
-    const paths: { pageOrTag: string }[] = [];
+  return paths;
+});
 
-    // 生成分页路径（从第2页开始）
-    if (totalPages > 1) {
-      Array.from({ length: totalPages - 1 }, (_, index) => {
-        paths.push({ pageOrTag: (index + 2).toString() });
+/**
+ * 获取所有标签路径
+ * @returns 包含所有标签的路径数组
+ */
+export const getTagPaths = cache(async (): Promise<{ tag: string }[]> => {
+  const posts = await postLists();
+  const allTags = new Set<string>();
+
+  // 收集所有标签并去重
+  posts.forEach((post) => {
+    if (post.tags) {
+      const tagsArray = Array.isArray(post.tags) ? post.tags : [post.tags];
+      tagsArray.forEach((tag) => {
+        if (tag) {
+          allTags.add(tag);
+        }
       });
     }
+  });
 
-    // 生成标签路径
-    allTags.forEach((tag) => {
-      paths.push({ pageOrTag: tag });
-    });
+  const paths: { tag: string }[] = [];
+  allTags.forEach((tag) => {
+    paths.push({ tag });
+  });
 
-    return paths;
-  },
-);
+  return paths;
+});
 
 /**
  * 分页获取文章列表
